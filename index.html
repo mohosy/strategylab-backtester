@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StrategyLab Backtester</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="controls">
+        <p class="eyebrow">Quant Demo</p>
+        <h1>StrategyLab Backtester</h1>
+        <p class="summary">
+          Simulate market regimes, run moving-average crossover strategies, and evaluate returns, risk, and execution quality in one browser-based dashboard.
+        </p>
+
+        <div class="panel">
+          <h2>Market Generator</h2>
+          <label>
+            Trend Bias
+            <input id="trendInput" type="range" min="-0.12" max="0.2" step="0.01" value="0.05" />
+            <span id="trendValue">0.05</span>
+          </label>
+          <label>
+            Volatility
+            <input id="volInput" type="range" min="0.4" max="3.2" step="0.1" value="1.4" />
+            <span id="volValue">1.4</span>
+          </label>
+          <label>
+            Regime Shifts
+            <input id="regimeInput" type="range" min="1" max="8" step="1" value="4" />
+            <span id="regimeValue">4</span>
+          </label>
+          <button id="regenerateBtn">Regenerate Market</button>
+        </div>
+
+        <div class="panel">
+          <h2>Strategy Settings</h2>
+          <label>
+            Fast SMA
+            <input id="fastInput" type="number" min="3" max="80" value="16" />
+          </label>
+          <label>
+            Slow SMA
+            <input id="slowInput" type="number" min="10" max="160" value="52" />
+          </label>
+          <div class="button-row">
+            <button id="runBtn">Run Backtest</button>
+          </div>
+        </div>
+
+        <div class="panel metrics">
+          <h2>Performance Metrics</h2>
+          <p>Total Return: <strong id="totalReturn">0%</strong></p>
+          <p>Annualized Sharpe: <strong id="sharpe">0</strong></p>
+          <p>Max Drawdown: <strong id="drawdown">0%</strong></p>
+          <p>Win Rate: <strong id="winRate">0%</strong></p>
+          <p>Trades: <strong id="trades">0</strong></p>
+          <p>Final Equity: <strong id="equity">$10,000</strong></p>
+        </div>
+      </section>
+
+      <section class="charts">
+        <article class="chart-card">
+          <h2>Price + Signals</h2>
+          <canvas id="priceChart" width="980" height="380"></canvas>
+        </article>
+        <article class="chart-card">
+          <h2>Equity Curve</h2>
+          <canvas id="equityChart" width="980" height="250"></canvas>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

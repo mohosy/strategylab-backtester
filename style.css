@@ -1,0 +1,160 @@
+:root {
+  --bg: #071015;
+  --panel: #10212d;
+  --panel-2: #0b1924;
+  --line: #284859;
+  --text: #eaf4ff;
+  --muted: #a4b9c8;
+  --accent: #4dd0e1;
+  --profit: #2ad59b;
+  --risk: #ff6f7f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "Clash Grotesk", "Helvetica Neue", sans-serif;
+  background: linear-gradient(165deg, #1d3242, #091119 46%, #060b11 100%);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(320px, 390px) 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.controls,
+.charts {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(155deg, rgba(16, 33, 45, 0.96), rgba(10, 22, 32, 0.95));
+}
+
+.controls {
+  padding: 1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+}
+
+h1 {
+  margin: 0.4rem 0;
+  font-size: clamp(1.55rem, 2vw, 2rem);
+}
+
+.summary {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 0.72rem;
+  background: rgba(7, 16, 25, 0.75);
+  margin-bottom: 0.72rem;
+}
+
+.panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.92rem;
+  color: #cbe1f2;
+}
+
+label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.4rem 0;
+  color: #c0d7ea;
+  font-size: 0.86rem;
+}
+
+input[type="range"] {
+  grid-column: 1 / span 2;
+  accent-color: var(--accent);
+}
+
+input[type="number"] {
+  width: 100%;
+  border: 1px solid #355568;
+  border-radius: 8px;
+  background: #0f2230;
+  color: #f1f9ff;
+  padding: 0.45rem;
+}
+
+button {
+  width: 100%;
+  border: 1px solid #3c6275;
+  border-radius: 8px;
+  color: #f1fcff;
+  background: linear-gradient(135deg, #245d77, #21415d);
+  padding: 0.55rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+.button-row {
+  margin-top: 0.4rem;
+}
+
+.metrics p {
+  margin: 0.32rem 0;
+  color: #b9d0e4;
+}
+
+.metrics strong {
+  color: #fbfeff;
+}
+
+.charts {
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.chart-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(8, 17, 25, 0.72);
+  padding: 0.65rem;
+}
+
+.chart-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: #cde4f7;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #2f4f62;
+  background: #040b12;
+  display: block;
+}
+
+@media (max-width: 1080px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
